@@ -109,8 +109,12 @@ colorSwatches.forEach(function(swatch) {
   });
 });
 
-function openModal() {
-    document.getElementById('modal').style.display = 'block';
+function openModal(index) {
+    var selectedProduct = products[index];
+    document.querySelector('#modal').style.display = 'block';
+    document.querySelector('product-title').textContent = selectedProduct.productName;
+    document.querySelector('product-description').textContent = selectedProduct.category;
+    document.querySelector('product-price').textContent = selectedProduct.price;
   }
 
   // Close the modal
