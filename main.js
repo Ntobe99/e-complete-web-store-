@@ -1,81 +1,130 @@
 
-//local storage
 let products =
 [
 {   id:1,
-    type:"oil",
-    productName:"Avalanche",
-    Image: "https://i.postimg.cc/66MjxFj1/abst2.jpg",
-    price:"R1300"
+    category:"woman",
+    productName:"Tab Sleeve Single Breast Blazer",
+    Image: "https://i.postimg.cc/VktKxb8r/56260373-800-800.png",
+    Image2:"",
+    price:"R599,00"
     
 },
 {   id:2,
-    type:"oil",
-    productName:"The modern Hague",
-    Image: "https://i.postimg.cc/MZ54KnT5/water-1.jpg",
-    price:"R6000"
+    category:"woman",
+    productName:"Ribbed Sleeveless Column Midi Dress",
+    Image: "https://i.postimg.cc/RZcw47bt/54314325-800-800.png",
+    Image2:"",
+    price:"R299,00"
 
 },
 {   id:3,
-    type:"oil",
-    productName:"Flower garden",
-    Image: "https://i.postimg.cc/xjpR4M8w/oil2.jpg",
-    price:"R3000"
+    category:"Woman",
+    productName:"Women's Chartreuse Melton Coat",
+    Image: "https://i.postimg.cc/G2V25jsV/56258625-800-800.png",
+    Image2:"",
+    price:"R999"
 },
 {   id:4,
-    type:"oil",
-    productName:"Renaisance Maiden",
-    Image: "https://i.postimg.cc/sXVctJpr/ren-1.jpg",
-    price:"R1000"
+    category:"Man",
+    productName:"Men's White Utility Vest",
+    Image: "https://i.postimg.cc/MHTWqPhd/55935723-800-800.png",
+    Image2:"",
+    price:"R279,99"
 },
 {   id:5, 
-    type:"oil",
-    productName:"Road to heaven",
-    Image: "https://i.postimg.cc/gjzTHWM3/ren-2.jpg",
-    price:"R1350"
+    category:"Man",
+    productName:"mens black blazer",
+    Image: "https://i.postimg.cc/kX2nHHN5/56409516-800-800.png",
+    Image2:"",
+    price:"R2500"
 },
 {   id:6,
-    type:"oil",
-    productName:"Mermaid enchantress",
-    Image: "https://i.postimg.cc/fb7C2PSC/water-2.jpg",
-    price:"R1400"
+    category:"Man",
+    productName:"Mens Orange windbraker",
+    Image: "https://i.postimg.cc/Hx3YGDPr/56277519-800-800.png",
+    Image2:"",
+    price:"R999"
 },
 {   id:7,
-    type:"oil",
-    productName:"Flower pot",
-    Image: "https://i.postimg.cc/Kj1n2pjd/flower.jpg",
-    price:"R1150"
+    category:"Kids",
+    productName:"Younger Girls Smart Pants",
+    Image: "https://i.postimg.cc/DfMB9fRb/pink-kids.png",
+    Image2:"",
+    price:"R399"
 },
 {   id:8,
-    type:"oil",
-    productName:"Hypotize me",
-    Image: "https://i.postimg.cc/50MGjvL7/abst1.jpg",
-    price:"R1350"
+    category:"Kids",
+    productName:"Older Boys Utility Puffer Jacket",
+    Image: "https://i.postimg.cc/26fMskJD/RED-BOY.png",
+    Image2:"",
+    price:"R499"
 },
 ]
 let productList = JSON.parse(localStorage.getItem('products')) ?
 JSON.parse(localStorage.getItem('products')) : 
 JSON.parse( 
     localStorage.setItem("products", JSON.stringify(products)));
-async function diplayArt(){
+async function diplayClothes(){
     productList.forEach((products)=> {
         document.querySelector(".products-container").innerHTML +=
             `<div class="container ">
-          <div class="card" style="width: 18rem;">
+          <div class="card" style="width: 18rem; height:35rem">
         <img src="${products.Image}" class="card-img-top " style="height: 25rem; width:17.9rem;" >
         <div class="card-body">
         <h5 class="card-title">${products.productName}</h5>
      <p class="card-text">${products.price}</p>
-    <a href="#" class="btn btn-dark">Add to checkout</a>
+     <div id="color-selector">
+    <div class="color-swatch" style="background-color: black;"></div>
+    <div class="color-swatch" style="background-color: pink;"></div>
+    <div class="color-swatch" style="background-color: red;"></div>
+  </div>
+  <p id="product-details">No color selected.</p>
+    <button class='btn btn-dark' style='border-radius: 0px;' onclick="openModal()">VIEW DETAILS</button>
   </div>  
+  <div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <img class="product-image" src="${products.Image}" alt="Product Image">
+    <h2 class="product-title">${products.productName}</h2>
+    <p class="product-description">${products.category}</p>
+    <p class="product-price">${products.price}</p>
+    <button class="btn btn-dark" onclick=addToCart()>ADD TO CART</button>
+  </div>
+</div>
         </div>
       </div>`;
     })
 }
-diplayArt();
+diplayClothes();
 console.table(products);
 
+// Get all color swatches
+const colorSwatches = document.querySelectorAll('.color-swatch');
 
+// Add click event listener to each color swatch
+colorSwatches.forEach(function(swatch) {
+  swatch.addEventListener('click', function() {
+    const selectedColor = swatch.style.backgroundColor;
+    document.getElementById('product-details').textContent = `Selected color: ${selectedColor}`;
+  });
+});
+
+function openModal() {
+    document.getElementById('modal').style.display = 'block';
+  }
+
+  // Close the modal
+  function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+  }
+
+  function addToCart() {
+   
+    alert('Product added to cart!');
+    closeModal();
+  }
+     
+  
 
 
 

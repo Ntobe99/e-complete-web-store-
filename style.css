@@ -1,8 +1,8 @@
 .navbar {
-    background-color: transparent !important;
+    background-color:#36454F !important;
   }
   
-  .navbar-nav {
+ .navbar-nav {
     margin: auto;
   }
   
@@ -10,6 +10,25 @@
     padding-left: 20px;
     padding-right: 20px;
   }
+  /*banner style*/
+  #banner .carousel-caption {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    color: #fff;
+  }
+  
+  #banner .carousel-caption h3,
+  #banner .carousel-caption p {
+    margin: 0;
+    margin-top: 5rem;
+  }
+  #banner{
+    margin-top: 3.5rem;
+  }
+  
 
 /*products-style*/
 .products-container{
@@ -26,14 +45,83 @@
   border-style: solid !important;
   border-color: #36454F !important;
   }
-  .card:hover{
-    background-color: #36454F;
-    color: aliceblue;
-  }
+ 
   .card-img-top{
     border-radius: 0px !important;
     padding: 0px;
 
+  }
+  .color-swatch {
+    width: 30px;
+    height: 30px;
+    border-radius: 0px;
+    display: inline-block;
+    margin-right: 5px;
+    cursor: pointer;
+  }
+   /* Modal styles */
+   .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+  }
+
+  .modal-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  /* Product display styles */
+  .product-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    margin-bottom: 20px;
+  }
+
+  .product-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .product-description {
+    margin-bottom: 20px;
+  }
+
+  .product-price {
+    font-size: 18px;
+    font-weight: bold;
+  }
+   /* Add to Cart button styles */
+   .add-to-cart-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
   }
   
   @media only screen and (max-width: 700px) and (min-width: 300px){
