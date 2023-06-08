@@ -46,7 +46,7 @@ let products =
     price:"R999"
 },
 {   id:7,
-    category:"Kids",
+    category:"Kids" ,
     productName:"Younger Girls Smart Pants",
     Image: "https://i.postimg.cc/DfMB9fRb/pink-kids.png",
     Image2:"",
@@ -64,7 +64,7 @@ let productList = JSON.parse(localStorage.getItem('products')) ?
 JSON.parse(localStorage.getItem('products')) : 
 JSON.parse( 
     localStorage.setItem("products", JSON.stringify(products)));
-async function diplayClothes(){
+async function displayClothes(){
     productList.forEach((products)=> {
         document.querySelector(".products-container").innerHTML +=
             `<div class="container ">
@@ -88,14 +88,15 @@ async function diplayClothes(){
     <h2 class="product-title">${products.productName}</h2>
     <p class="product-description">${products.category}</p>
     <p class="product-price">${products.price}</p>
-    <button class="btn btn-dark" onclick=addToCart()>ADD TO CART</button>
+    <button class="btn btn-dark" onclick=addToCart(${index})>ADD TO CART</button>
   </div>
 </div>
         </div>
       </div>`;
     })
 }
-diplayClothes();
+
+displayClothes();
 console.table(products);
 
 // Get all color swatches
@@ -127,6 +128,58 @@ function openModal(index) {
     alert('Product added to cart!');
     closeModal();
   }
+  let selectedCategory = ''; // Variable to store the selected category
+
+// Function to filter products based on the selected category
+function filterProducts(category) {
+  selectedCategory =category;
+  displayFilteredProducts();
+}
+
+// Function to display filtered products
+function displayFilteredProducts() {
+  const productsContainer = document.querySelector(".products-container");
+  productsContainer.innerHTML = ''; // Clear previous products
+  
+  productList.forEach((products) => {
+    if (selectedCategory === '' || products.category.toLowerCase() === selectedCategory.toLowerCase()) {
+      productsContainer.innerHTML +=
+        `<div class="container ">
+          <div class="card" style="width: 18rem; height:35rem">
+            <img src="${products.Image}" class="card-img-top " style="height: 25rem; width:17.9rem;" >
+            <div class="card-body">
+              <h5 class="card-title">${products.productName}</h5>
+              <p class="card-text">${products.price}</p>
+              <div id="color-selector">
+                <div class="color-swatch" style="background-color: black;"></div>
+                <div class="color-swatch" style="background-color: pink;"></div>
+                <div class="color-swatch" style="background-color: red;"></div>
+              </div>
+              <p id="product-details">No color selected.</p>
+              <button class='btn btn-dark' style='border-radius: 0px;' onclick="openModal()">VIEW DETAILS</button>
+            </div>  
+            <div id="modal" class="modal">
+              <div class="modal-content">
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+                <img class="product-image" src="${products.Image}" alt="Product Image">
+                <h2 class="product-title">${products.productName}</h2>
+                <p class="product-description">${products.category}</p>
+                <p class="product-price">${products.price}</p>
+                <button class="btn btn-dark" onclick="addToCart()">ADD TO CART</button>
+              </div>
+            </div>
+          </div>
+        </div>`;
+    }
+  });
+}
+
+// Call displayFilteredProducts initially to show all products
+displayFilteredProducts();
+console.table(products);
+
+
+  
      
   
 
