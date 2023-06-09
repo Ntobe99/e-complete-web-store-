@@ -99,16 +99,7 @@ async function displayClothes(){
 displayClothes();
 console.table(products);
 
-// Get all color swatches
-const colorSwatches = document.querySelectorAll('.color-swatch');
 
-// Add click event listener to each color swatch
-colorSwatches.forEach(function(swatch) {
-  swatch.addEventListener('click', function() {
-    const selectedColor = swatch.style.backgroundColor;
-    document.getElementById('product-details').textContent = `Selected color: ${selectedColor}`;
-  });
-});
 
 function openModal(index) {
     var selectedProduct = products[index];
@@ -178,6 +169,17 @@ function displayFilteredProducts() {
 displayFilteredProducts();
 console.table(products);
 
+
+// Get all color swatches
+const colorSwatches = document.querySelectorAll('.color-swatch');
+
+// Add click event listener to each color swatch
+colorSwatches.forEach(function(swatch) {
+  swatch.addEventListener('click', function() {
+    const selectedColor = swatch.style.backgroundColor;
+    document.getElementById('product-details').textContent = `Selected color: ${selectedColor}`;
+  });
+});
 
   
      
