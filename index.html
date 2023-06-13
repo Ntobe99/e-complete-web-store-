@@ -38,12 +38,8 @@
   
   <!-- Banner Slider -->
   <div id="banner">
-  <div id="carouselExampleCaptions" class="carousel slide">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+   
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img src="https://i.postimg.cc/1z5bDkJH/woman_banner.webp" class="d-block w-100" alt="..." style="height: 85vh;">
@@ -58,7 +54,7 @@
         <div class="carousel-caption d-none d-md-block">
           <h2>MEN</h2>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa ipsa explicabo facilis repellendus hic. Pariatur, maxime odit? Dolor, perspiciatis. Quas enim nihil mollitia quam nesciunt dolor reiciendis et doloribus quia.</p>
-          <a href="/category.html" class="btn btn-dark">SHOP MEN<i class="fa-solid fa-arrow-right"></i></a>
+          <a href="/category.html" class="btn btn-dark" >SHOP MEN<i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
       <div class="carousel-item">
@@ -70,32 +66,23 @@
         </div>
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
   </div>
 </div>
 
-  <!-- Product Slider -->
-  <div id="productSlider" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-      <!-- Add your product slides here -->
-      <div class="carousel-item active">
-        <div class="row">
-          <h3 class="text-center"><strong>OUR LATEST PRODUCTS</strong></h3>
-           <div class="products-container"></div>
-          <div class="col-md-4">
-        </div>
-      </div>
-   
+<!-- product slider  -->
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="products-container" style="height: 85vh;"></div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://i.postimg.cc/fTpHqf6Q/56260388-800-800.png" class="d-block w-100" alt="..." style="height: 85vh;">
+    </div>
+    <div class="carousel-item">
+      <img src="https://i.postimg.cc/RZcw47bt/54314325-800-800.png" class="d-block w-100" alt="..." style="height: 85vh;">
     </div>
   </div>
-
+</div>
   <!-- Footer -->
   <footer class="footer-clean">
     <div class="container">
