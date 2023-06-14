@@ -147,7 +147,7 @@ function displayFilteredProducts() {
                 <h2 class="product-title">${product.productName}</h2>
                 <p class="product-description">${product.category}</p>
                 <p class="product-price">${product.price}</p>
-                <button class="btn btn-dark" onclick="addToCart(productId)">ADD TO CART</button>
+                <button class="btn btn-dark  add-to-cart" onclick="addToCart()">ADD TO CART</button>
               </div>
             </div>
           </div>
@@ -180,6 +180,7 @@ function updateCartDisplay() {
     cartItemElement.classList.add('cart-item');
     cartItemElement.innerHTML = `
       <div>
+      <span>${item.Image}</span>
         <span>${item.name}</span>
         <span>Price: R${item.price}</span>
       </div>
@@ -195,11 +196,13 @@ function addToCart(productId) {
   let productInfo = {
     id: Date.now(),
     name: product.productName,
-    price: product.price
+    price: product.price,
+    pic:product.Image
   };
   cartItems.push(productInfo);
   updateCartDisplay();
   closeModal();
+  console.table(cartItems);
 }
 
 // Function to remove an item from the cart
@@ -222,7 +225,10 @@ function openModal(id) {
   document.querySelector('.product-title').textContent = selectedProduct.productName;
   document.querySelector('.product-description').textContent = selectedProduct.category;
   document.querySelector('.product-price').textContent = selectedProduct.price;
+  document.querySelector('.product-image').src = selectedProduct.Image;
+  document.querySelector('.add-to-cart').onclick = addToCart;
 }
+
 
 // Close the modal
 function closeModal() {
